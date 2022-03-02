@@ -1,6 +1,6 @@
 default_settings: null
 behaviors:
-  TwoMoveToGoal:
+  My Behavior:
     trainer_type: ppo
     hyperparameters:
       batch_size: 1024

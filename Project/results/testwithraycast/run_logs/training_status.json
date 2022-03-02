@@ -2,58 +2,58 @@
     "MoveToGoal": {
         "checkpoints": [
             {
-                "steps": 1749942,
-                "file_path": "results\\testwithraycast\\MoveToGoal\\MoveToGoal-1749942.onnx",
-                "reward": 9.4685870423913,
-                "creation_time": 1645276051.680532,
+                "steps": 1099954,
+                "file_path": "results\\testwithraycast\\MoveToGoal\\MoveToGoal-1099954.onnx",
+                "reward": 6.701861332130173,
+                "creation_time": 1645706259.609472,
                 "auxillary_file_paths": [
-                    "results\\testwithraycast\\MoveToGoal\\MoveToGoal-1749942.pt"
+                    "results\\testwithraycast\\MoveToGoal\\MoveToGoal-1099954.pt"
                 ]
             },
             {
-                "steps": 1799936,
-                "file_path": "results\\testwithraycast\\MoveToGoal\\MoveToGoal-1799936.onnx",
-                "reward": 9.66037829965353,
-                "creation_time": 1645276095.550318,
+                "steps": 1149978,
+                "file_path": "results\\testwithraycast\\MoveToGoal\\MoveToGoal-1149978.onnx",
+                "reward": 6.909480540156364,
+                "creation_time": 1645706316.0919814,
                 "auxillary_file_paths": [
-                    "results\\testwithraycast\\MoveToGoal\\MoveToGoal-1799936.pt"
+                    "results\\testwithraycast\\MoveToGoal\\MoveToGoal-1149978.pt"
                 ]
             },
             {
-                "steps": 1849939,
-                "file_path": "results\\testwithraycast\\MoveToGoal\\MoveToGoal-1849939.onnx",
-                "reward": null,
-                "creation_time": 1645276140.095466,
+                "steps": 1199954,
+                "file_path": "results\\testwithraycast\\MoveToGoal\\MoveToGoal-1199954.onnx",
+                "reward": 9.447574038306872,
+                "creation_time": 1645706372.7006328,
                 "auxillary_file_paths": [
-                    "results\\testwithraycast\\MoveToGoal\\MoveToGoal-1849939.pt"
+                    "results\\testwithraycast\\MoveToGoal\\MoveToGoal-1199954.pt"
                 ]
             },
             {
-                "steps": 1899947,
-                "file_path": "results\\testwithraycast\\MoveToGoal\\MoveToGoal-1899947.onnx",
-                "reward": 9.36158761176023,
-                "creation_time": 1645276193.2319021,
+                "steps": 1249955,
+                "file_path": "results\\testwithraycast\\MoveToGoal\\MoveToGoal-1249955.onnx",
+                "reward": 9.266257595803056,
+                "creation_time": 1645706429.4196465,
                 "auxillary_file_paths": [
-                    "results\\testwithraycast\\MoveToGoal\\MoveToGoal-1899947.pt"
+                    "results\\testwithraycast\\MoveToGoal\\MoveToGoal-1249955.pt"
                 ]
             },
             {
-                "steps": 1900597,
-                "file_path": "results\\testwithraycast\\MoveToGoal\\MoveToGoal-1900597.onnx",
-                "reward": 9.253336373567581,
-                "creation_time": 1645276193.9283955,
+                "steps": 1250275,
+                "file_path": "results\\testwithraycast\\MoveToGoal\\MoveToGoal-1250275.onnx",
+                "reward": 9.266257595803056,
+                "creation_time": 1645706429.8841076,
                 "auxillary_file_paths": [
-                    "results\\testwithraycast\\MoveToGoal\\MoveToGoal-1900597.pt"
+                    "results\\testwithraycast\\MoveToGoal\\MoveToGoal-1250275.pt"
                 ]
             }
         ],
         "final_checkpoint": {
-            "steps": 1900597,
+            "steps": 1250275,
             "file_path": "results\\testwithraycast\\MoveToGoal.onnx",
-            "reward": 9.253336373567581,
-            "creation_time": 1645276193.9283955,
+            "reward": 9.266257595803056,
+            "creation_time": 1645706429.8841076,
             "auxillary_file_paths": [
-                "results\\testwithraycast\\MoveToGoal\\MoveToGoal-1900597.pt"
+                "results\\testwithraycast\\MoveToGoal\\MoveToGoal-1250275.pt"
             ]
         }
     },
