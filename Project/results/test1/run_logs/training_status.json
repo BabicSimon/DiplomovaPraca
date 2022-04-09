@@ -1,32 +1,23 @@
 {
-    "MoveToGoal": {
+    "ShootingAgent": {
         "checkpoints": [
             {
-                "steps": 499997,
-                "file_path": "results\\test1\\MoveToGoal\\MoveToGoal-499997.onnx",
-                "reward": 1.0,
-                "creation_time": 1639225148.975652,
+                "steps": 155444,
+                "file_path": "results\\test1\\ShootingAgent\\ShootingAgent-155444.onnx",
+                "reward": null,
+                "creation_time": 1649516082.9936838,
                 "auxillary_file_paths": [
-                    "results\\test1\\MoveToGoal\\MoveToGoal-499997.pt"
-                ]
-            },
-            {
-                "steps": 500027,
-                "file_path": "results\\test1\\MoveToGoal\\MoveToGoal-500027.onnx",
-                "reward": 1.0,
-                "creation_time": 1639225149.0111585,
-                "auxillary_file_paths": [
-                    "results\\test1\\MoveToGoal\\MoveToGoal-500027.pt"
+                    "results\\test1\\ShootingAgent\\ShootingAgent-155444.pt"
                 ]
             }
         ],
         "final_checkpoint": {
-            "steps": 500027,
-            "file_path": "results\\test1\\MoveToGoal.onnx",
-            "reward": 1.0,
-            "creation_time": 1639225149.0111585,
+            "steps": 155444,
+            "file_path": "results\\test1\\ShootingAgent.onnx",
+            "reward": null,
+            "creation_time": 1649516082.9936838,
             "auxillary_file_paths": [
-                "results\\test1\\MoveToGoal\\MoveToGoal-500027.pt"
+                "results\\test1\\ShootingAgent\\ShootingAgent-155444.pt"
             ]
         }
     },
