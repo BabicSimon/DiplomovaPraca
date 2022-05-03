@@ -2,22 +2,22 @@
     "ShootingAgent": {
         "checkpoints": [
             {
-                "steps": 155444,
-                "file_path": "results\\test1\\ShootingAgent\\ShootingAgent-155444.onnx",
-                "reward": null,
-                "creation_time": 1649516082.9936838,
+                "steps": 575237,
+                "file_path": "results\\test1\\ShootingAgent\\ShootingAgent-575237.onnx",
+                "reward": 0.9170524507210959,
+                "creation_time": 1651309284.3896883,
                 "auxillary_file_paths": [
-                    "results\\test1\\ShootingAgent\\ShootingAgent-155444.pt"
+                    "results\\test1\\ShootingAgent\\ShootingAgent-575237.pt"
                 ]
             }
         ],
         "final_checkpoint": {
-            "steps": 155444,
+            "steps": 575237,
             "file_path": "results\\test1\\ShootingAgent.onnx",
-            "reward": null,
-            "creation_time": 1649516082.9936838,
+            "reward": 0.9170524507210959,
+            "creation_time": 1651309284.3896883,
             "auxillary_file_paths": [
-                "results\\test1\\ShootingAgent\\ShootingAgent-155444.pt"
+                "results\\test1\\ShootingAgent\\ShootingAgent-575237.pt"
             ]
         }
     },

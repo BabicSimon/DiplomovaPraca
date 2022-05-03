@@ -5,8 +5,6 @@ using UnityEngine.AI;
 
 public class DummyEnemy : MonoBehaviour
 {
-    //public NavMeshAgent navMeshAgent;
-
     public Transform player;
     public bool followPlayer;
     public int startingHealth = 100;

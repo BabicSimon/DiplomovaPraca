@@ -7,11 +7,14 @@ public class Enemy : MonoBehaviour
     public Transform player;
     public int startingHealth = 100;
     public int speed = 5;
+    public bool canRespawn;
     private int currentHealt;
+    private Vector3 respawnPosition;
 
     void Start()
     {
         currentHealt = startingHealth;
+        respawnPosition = transform.position;
     }
 
     public void GetShot(int damage, ShootingAgent shooter)
@@ -48,20 +51,26 @@ public class Enemy : MonoBehaviour
     {
         Debug.Log("I died!");
         shooter.RegisterKill();
-        Respawn();
+        if (canRespawn)
+            Respawn();
+        else
+            Destroy(gameObject);
     }
 
     private void Die(PlayerController shooter)
     {
         Debug.Log("I died!");
         shooter.RegisterKill();
-        Respawn();
+        if(canRespawn)
+            Respawn();
+        else
+            Destroy(gameObject);
     }
 
     private void Respawn()
     {
         currentHealt = startingHealth;
-        transform.localPosition = new Vector3(Random.Range(-20f, 20f), 0, Random.Range(-20f, 20f));
+        transform.localPosition = respawnPosition;
     }
 
     private void OnCollisionEnter(Collision collision)

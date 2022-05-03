@@ -66,8 +66,10 @@ public class ShootingAgent : Agent
                 Shoot();
                 return;
         }
+
         transform.Rotate(rotateDir, Time.deltaTime * 200f);
         agentBody.AddForce(dirToGo * 1f, ForceMode.VelocityChange);
+        
     }
 
     public override void OnActionReceived(ActionBuffers actions)
@@ -81,19 +83,25 @@ public class ShootingAgent : Agent
         if (!shotAvailable)
             return;
 
-        var layerMask = 1 << LayerMask.NameToLayer("Enemy");
+        var layerMask = 1 << LayerMask.NameToLayer("Player");
         var direction = transform.forward;
 
-        Debug.DrawRay(shootingPoint.position, direction * range, Color.red, 2f);
+        //Physics.Raycast(shootingPoint.position, direction, out var hit, 50f, layerMask)
 
+        
 
-        if (Physics.Raycast(shootingPoint.position, direction, out var hit, 50f, layerMask))
+        if (Physics.SphereCast(shootingPoint.position, 1f, direction, out var hit, 50f, layerMask))
         {
             Debug.DrawRay(shootingPoint.position, direction * range, Color.green, 2f);
-            hit.transform.GetComponent<DummyEnemy>().GetShot(damage, this);
+
+            if(hit.transform.GetComponent<DummyEnemy>() != null)
+                hit.transform.GetComponent<DummyEnemy>().GetShot(damage, this);
+            if (hit.transform.GetComponent<PlayerController>() != null)
+                hit.transform.GetComponent<PlayerController>().Respawn();
         }
         else
         {
+            Debug.DrawRay(shootingPoint.position, direction * range, Color.red, 2f);
             AddReward(-.1f);
         }
 
@@ -126,12 +134,11 @@ public class ShootingAgent : Agent
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("wall") || other.CompareTag("enemy"))
+        if (other.CompareTag("wall") || other.CompareTag("player") || other.CompareTag("enemy"))
         {
             AddReward(-5f);
             EndEpisode();
         }
-
     }
 
 }

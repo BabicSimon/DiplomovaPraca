@@ -10,17 +10,21 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private Transform shootingPoint;
     [Space]
     [SerializeField] private float speed;
-    [SerializeField] private float gravity = -9.81f;
 
     public int minStepsBetweenShots = 500;
     public int damage = 100;
     public int range = 30;
 
     private Vector3 movementInput;
-    private Vector3 velocity;
     private bool shotAvailable = false;
     private int stepsUntilShotIsAvailable = 0;
     private int score;
+    private Vector3 respawnPosition;
+
+    private void Start()
+    {
+        respawnPosition = transform.position;        
+    }
 
     private void Update()
     {
@@ -48,17 +52,7 @@ public class PlayerController : MonoBehaviour
     {
         Vector3 moveVector = playerBox.TransformDirection(movementInput);
 
-        if (controller.isGrounded)
-        {
-            velocity.y = -1f;
-        }
-        else
-        {
-            velocity.y -= gravity * -2f * Time.deltaTime;
-        }
-
         controller.Move(moveVector * speed * Time.deltaTime);
-        controller.Move(velocity * Time.deltaTime);
     }
 
     private void RotatePlayer()
@@ -98,6 +92,12 @@ public class PlayerController : MonoBehaviour
 
     public void RegisterKill() {
         score += 100;
+    }
+
+    public void Respawn()
+    {
+        Debug.Log("respawn");
+        transform.localPosition = respawnPosition;
     }
 
 }
