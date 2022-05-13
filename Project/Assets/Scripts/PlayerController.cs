@@ -8,12 +8,13 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private Transform playerBox;
     [SerializeField] private Rigidbody playerBody;
     [SerializeField] private Transform shootingPoint;
+    [SerializeField] private Transform bullet;
     [Space]
     [SerializeField] private float speed;
 
     public int minStepsBetweenShots = 500;
     public int damage = 100;
-    public int range = 30;
+    public float range = 30;
 
     private Vector3 movementInput;
     private bool shotAvailable = false;
@@ -74,17 +75,25 @@ public class PlayerController : MonoBehaviour
         if (!shotAvailable)
             return;
 
-        var layerMask = 1 << LayerMask.NameToLayer("Enemy");
+        var layerMask = LayerMask.GetMask("Player", "Wall", "Enemy");
         var direction = transform.forward;
 
-        Debug.DrawRay(shootingPoint.position, direction * range, Color.red, 2f);
-
+        Transform bulletTransform = Instantiate(bullet, shootingPoint.position, Quaternion.identity);
+        bulletTransform.GetComponent<Bullet>().Setup(direction);
 
         if (Physics.Raycast(shootingPoint.position, direction, out var hit, 50f, layerMask))
         {
-            Debug.DrawRay(shootingPoint.position, direction * range, Color.green, 2f);
-            hit.transform.GetComponent<Enemy>().GetShot(damage, this);
+            if (hit.transform.CompareTag("enemy"))
+            {
+                Debug.DrawRay(shootingPoint.position, direction * range, Color.green, 2f);
+                hit.transform.GetComponent<Enemy>().GetShot(damage, this);
+            }
+            else
+            {
+                Debug.DrawRay(shootingPoint.position, direction * range, Color.red, 2f);
+            }
         }
+        
 
         shotAvailable = false;
         stepsUntilShotIsAvailable = minStepsBetweenShots;

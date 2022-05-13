@@ -18,9 +18,9 @@ GameObject:
   - component: {fileID: 7423862786892035265}
   - component: {fileID: 305566537091189106}
   - component: {fileID: 5987785140281561730}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: EnemyAI
-  m_TagString: Untagged
+  m_TagString: enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -63,6 +63,7 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 2
+  m_RayTraceProcedural: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -87,6 +88,7 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_AdditionalVertexStreams: {fileID: 0}
 --- !u!65 &2893250967099873479
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -164,6 +166,7 @@ MonoBehaviour:
   hasUpgradedFromAgentParameters: 1
   MaxStep: 1000000
   agentBody: {fileID: 1198982995807718237}
+  bullet: {fileID: 2305679340513682069, guid: 8de86748418981c4c91453b0bc8f6c21, type: 3}
   score: 0
   shootingPoint: {fileID: 5522649337105002296}
   minStepsBetweenShots: 50
@@ -246,10 +249,45 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 6685149391148818995}
     m_Modifications:
+    - target: {fileID: 66907579555916624, guid: b826f9656158ca643b185b93432591bc,
+        type: 3}
+      propertyPath: m_Layer
+      value: 11
+      objectReference: {fileID: 0}
+    - target: {fileID: 273008275002108100, guid: b826f9656158ca643b185b93432591bc,
+        type: 3}
+      propertyPath: m_Layer
+      value: 11
+      objectReference: {fileID: 0}
+    - target: {fileID: 485838752243286168, guid: b826f9656158ca643b185b93432591bc,
+        type: 3}
+      propertyPath: m_Layer
+      value: 11
+      objectReference: {fileID: 0}
+    - target: {fileID: 566470385145314297, guid: b826f9656158ca643b185b93432591bc,
+        type: 3}
+      propertyPath: m_Layer
+      value: 11
+      objectReference: {fileID: 0}
+    - target: {fileID: 2189173348543382676, guid: b826f9656158ca643b185b93432591bc,
+        type: 3}
+      propertyPath: m_Layer
+      value: 11
+      objectReference: {fileID: 0}
+    - target: {fileID: 2433215719015747272, guid: b826f9656158ca643b185b93432591bc,
+        type: 3}
+      propertyPath: m_Layer
+      value: 11
+      objectReference: {fileID: 0}
     - target: {fileID: 2433215719488326549, guid: b826f9656158ca643b185b93432591bc,
         type: 3}
       propertyPath: m_Name
       value: Gun
+      objectReference: {fileID: 0}
+    - target: {fileID: 2433215719488326549, guid: b826f9656158ca643b185b93432591bc,
+        type: 3}
+      propertyPath: m_Layer
+      value: 11
       objectReference: {fileID: 0}
     - target: {fileID: 2433215719488326554, guid: b826f9656158ca643b185b93432591bc,
         type: 3}
@@ -305,6 +343,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2433215719785873139, guid: b826f9656158ca643b185b93432591bc,
+        type: 3}
+      propertyPath: m_Layer
+      value: 11
+      objectReference: {fileID: 0}
+    - target: {fileID: 2433215720341040621, guid: b826f9656158ca643b185b93432591bc,
+        type: 3}
+      propertyPath: m_Layer
+      value: 11
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b826f9656158ca643b185b93432591bc, type: 3}

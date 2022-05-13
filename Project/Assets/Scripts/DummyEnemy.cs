@@ -11,9 +11,11 @@ public class DummyEnemy : MonoBehaviour
     public int speed = 5;
     private int currentHealt;
 
+    private Vector3 startingPosition;
     void Start()
     {
         transform.localPosition = new Vector3(Random.Range(-20f, 20f), 0, Random.Range(-20f, 20f));
+        //startingPosition = transform.localPosition;
         currentHealt = startingHealth;
     }
 
@@ -74,6 +76,7 @@ public class DummyEnemy : MonoBehaviour
     {
         currentHealt = startingHealth;
         transform.localPosition = new Vector3(Random.Range(-20f, 20f), 0, Random.Range(-20f, 20f));
+        //transform.localPosition = startingPosition;
     }
 
     private void OnCollisionEnter(Collision collision)

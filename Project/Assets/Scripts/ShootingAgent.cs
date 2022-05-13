@@ -8,6 +8,7 @@ using Unity.MLAgents.Sensors;
 public class ShootingAgent : Agent
 {
     [SerializeField] private Rigidbody agentBody;
+    [SerializeField] private Transform bullet;
 
     public int score = 0;
     public Transform shootingPoint;
@@ -74,7 +75,7 @@ public class ShootingAgent : Agent
 
     public override void OnActionReceived(ActionBuffers actions)
     {
-        AddReward(-1f / MaxStep);
+        AddReward(-100f / MaxStep);
         MoveAgent(actions.DiscreteActions);
     }
 
@@ -83,26 +84,27 @@ public class ShootingAgent : Agent
         if (!shotAvailable)
             return;
 
-        var layerMask = 1 << LayerMask.NameToLayer("Player");
+        var layerMask = LayerMask.GetMask("Player", "Wall", "Enemy");
         var direction = transform.forward;
 
-        //Physics.Raycast(shootingPoint.position, direction, out var hit, 50f, layerMask)
+        Transform bulletTransform = Instantiate(bullet, shootingPoint.position, Quaternion.identity);
+        bulletTransform.GetComponent<Bullet>().Setup(direction);
 
-        
-
-        if (Physics.SphereCast(shootingPoint.position, 1f, direction, out var hit, 50f, layerMask))
+        if (Physics.Raycast(shootingPoint.position, direction, out var hit, 50f, layerMask))
         {
-            Debug.DrawRay(shootingPoint.position, direction * range, Color.green, 2f);
-
-            if(hit.transform.GetComponent<DummyEnemy>() != null)
-                hit.transform.GetComponent<DummyEnemy>().GetShot(damage, this);
-            if (hit.transform.GetComponent<PlayerController>() != null)
-                hit.transform.GetComponent<PlayerController>().Respawn();
-        }
-        else
-        {
-            Debug.DrawRay(shootingPoint.position, direction * range, Color.red, 2f);
-            AddReward(-.1f);
+            if (hit.transform.CompareTag("player"))
+            {
+                Debug.DrawRay(shootingPoint.position, direction * range, Color.green, 2f);
+                if (hit.transform.GetComponent<DummyEnemy>() != null)
+                    hit.transform.GetComponent<DummyEnemy>().GetShot(damage, this);
+                if (hit.transform.GetComponent<PlayerController>() != null)
+                    hit.transform.GetComponent<PlayerController>().Respawn();
+            }
+            else
+            {
+                Debug.DrawRay(shootingPoint.position, direction * range, Color.red, 2f);
+                AddReward(-.1f);
+            }
         }
 
         shotAvailable = false;
@@ -111,8 +113,7 @@ public class ShootingAgent : Agent
 
     public void RegisterKill()
     {
-        AddReward(1.0f);
-        EndEpisode();
+        AddReward(5f);
     }
 
     public override void Heuristic(in ActionBuffers actionsOut)
